@@ -23,9 +23,11 @@ def dynamic_model_selection(request: ModelRequest, handler) -> ModelResponse:
     """Choose model based on conversation complexity"""
     message_count = len(request.state["messages"])
     if message_count > 10:
-        model = llm_deep_seek
+       print('1')
+       model = llm_deep_seek
     else: 
-        model = llm_gemini
+       print('2')
+       model = llm_gemini
 
     return handler(request.override(model=model))
 
@@ -42,11 +44,15 @@ def main() -> None:
     agent = create_agent(
             model=llm_deep_seek,
             tools=[],
-            #middleware=[dynamic_model_selection]
+            middleware=[dynamic_model_selection]
             )
 
-    response = agent.invoke("Reply ONLY with the word: CONNECTED")
-    print(response)
+    question = "Calculate 6 multiplied by 7 using the tool."
+    result = agent.invoke(
+        {"messages": [("user", question)]}
+    )
+
+    print(result["messages"][-1].content)
 
 
 
