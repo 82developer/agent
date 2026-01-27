@@ -1,0 +1,16 @@
+{
+  "venvPath": ".",
+  "venv": "venv",
+  "typeCheckingMode": "basic",
+  "diagnosticMode": "openFilesOnly",
+  "exclude": [
+      "**/assets/**",
+      "**/node_modules/**",
+      "**/__pycache__/**"
+  ],
+  "reportArgumentType": "none",
+  "reportUnknownMemberType": "none",
+  "reportUnknownVariableType": "none",
+  "reportUnknownParameterType": "none",
+  "reportMissingTypeStubs": "none"
+}
