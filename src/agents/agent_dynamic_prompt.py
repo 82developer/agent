@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from typing import TypedDict
 
 from dotenv import load_dotenv
@@ -7,7 +8,8 @@ from langchain.tools import tool
 from langchain_deepseek import ChatDeepSeek
 
 
-class Context(TypedDict):
+@dataclass
+class Context:
     user_role: str
 
 
