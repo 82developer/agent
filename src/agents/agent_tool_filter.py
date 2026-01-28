@@ -35,14 +35,13 @@ def filter_tools(
         handler: Callable[[ModelRequest], ModelResponse],
         ) -> ModelResponse:
     """Filter tools based on user permissions."""
-
     user_role = getattr(request.runtime.context,"user_role",None)
 
     if user_role == "admin":
         tools = request.tools
     else:
         tools = [t for t in request.tools if getattr(t,'name').startswith("read_")]
-
+    
     return handler(request.override(tools=tools))
 
 load_dotenv()
@@ -56,3 +55,11 @@ agent = create_agent(
         middleware=[filter_tools],
         context_schema=UserContext
         )
+result = agent.invoke(
+                        {"messages": [
+                            {"role":"user","content":"what is the weather in sf"}
+                            ]
+                        },
+                        context={"user_role": "admin"}
+                    )
+print(result)
