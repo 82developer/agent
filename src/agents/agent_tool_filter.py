@@ -1,12 +1,12 @@
-from typing import Callable, Dict,  Any, List, TypedDict
 from dataclasses import dataclass
+from typing import Any, Callable, Dict, List, TypedDict
 
-from langchain.agents import create_agent
-from langchain.agents.middleware import wrap_model_call, ModelRequest, ModelResponse
-from langchain.tools import tool
-
-from langchain_deepseek import ChatDeepSeek
 from dotenv import load_dotenv
+from langchain.agents import create_agent
+from langchain.agents.middleware import (ModelRequest, ModelResponse,
+                                         wrap_model_call)
+from langchain.tools import tool
+from langchain_deepseek import ChatDeepSeek
 
 
 @dataclass

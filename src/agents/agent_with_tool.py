@@ -30,14 +30,18 @@ def search(
            query: str
           )-> str:
     """Search for information."""
-    return f"Results for: {query}"
+    result = f"Results for: {query}"
+    print(1)
+    return result
 
 @tool
 def get_weather(
         location: str
         ) -> str:
     """Get weather information for a location."""
-    return f"Weather in {location}: Sunny, 72 F"
+    result = f"Weather in {location}: Sunny, 72 F"
+    print(2)
+    return result
 
 def main()->None:
     load_dotenv()
