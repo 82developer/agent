@@ -9,7 +9,7 @@ from langgraph.checkpoint.memory import InMemorySaver
 from langchain.agents.structured_output import ToolStrategy
 
 @tool
-def get_weather_for_location(city: str)-> str:
+def get_weather_for_location(city: str) -> str:
     """Get weather for a given city."""
     return f"It's always sunny in  {city}"
 
@@ -22,7 +22,7 @@ class Context:
 def get_user_location(runtime: ToolRuntime[Context]) -> str:
     """Retrieve user information based on user ID."""
     user_id = runtime.context.user_id
-    return 'Florida' if user_id == "1" else "SF"
+    return "Florida" if user_id == "1" else "SF"
 
 @dataclass
 class ResponseFormat:

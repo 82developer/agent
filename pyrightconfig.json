@@ -8,6 +8,9 @@
       "**/node_modules/**",
       "**/__pycache__/**"
   ],
+  "analysis":{
+      "diagnosticMode" :"workspace", 
+  },
   "reportArgumentType": "none",
   "reportUnknownMemberType": "none",
   "reportUnknownVariableType": "none",
